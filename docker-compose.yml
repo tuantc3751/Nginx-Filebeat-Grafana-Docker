@@ -190,9 +190,26 @@ services:
             context: ./python
         depends_on:
             - kafka # Phụ thuộc vào Kafka
+            - elasticsearch
         networks:
             - elk # Đặt vào cùng mạng 'elk' để giao tiếp với Kafka
         restart: always
+
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        ports:
+            - 3001:3000
+        restart: unless-stopped
+        environment:
+            GF_SECURITY_ADMIN_USER: admin
+            GF_SECURITY_ADMIN_PASSWORD: admin
+        depends_on:
+            - elasticsearch
+        volumes:
+            - ./data/grafana_storage:/var/lib/grafana
+        networks:
+            - elk
 
 networks:
     elk:

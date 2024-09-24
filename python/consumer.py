@@ -40,16 +40,24 @@ def process_data(message):
         request = match.group('request')
         status = match.group('status')
         response_size = match.group('response_size')
+        referrer = match.group('referrer')
+        user_agent = match.group('user_agent')
         data_predict = request.split(' ')
+        request_method = data_predict[0]
+
         if(len(data_predict) == 3):
            type_attack = predict_single_url(data_predict[1])
+        
         data = {
+            "ip": ip,
             "request": request,
+            "request_method": request_method,
             "status": status,
+            "referrer": referrer,
             "@timestamp": message['@timestamp'],
             # "type": message['event']['dataset'],
             "response_size": response_size,
-            "ip": ip,
+            "user_agent": user_agent,
             "attack" : type_attack
         }
 

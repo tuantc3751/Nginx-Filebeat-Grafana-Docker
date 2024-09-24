@@ -16,4 +16,4 @@
 # cron -f
 
 
-python /usr/src/app/run.py
+python /usr/src/app/consumer.py
