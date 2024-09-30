@@ -1,5 +1,5 @@
 # Sử dụng image Python chính thức
-FROM python:3.8-slim
+FROM python:3.9-slim
 
 # Cài đặt nano, dos2unix và các gói phụ thuộc
 RUN apt-get update && apt-get install -y nano libc-bin dos2unix

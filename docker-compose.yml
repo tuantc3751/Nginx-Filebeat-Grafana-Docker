@@ -188,6 +188,7 @@ services:
     python-consumer:
         build:
             context: ./python
+        container_name: python
         depends_on:
             - kafka # Phụ thuộc vào Kafka
             - elasticsearch
