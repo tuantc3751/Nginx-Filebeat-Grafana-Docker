@@ -22,7 +22,7 @@ def predict_single_url(url):
         return "none"
     print([preprocessed_url])
     print(model.detect([preprocessed_url]))
-    return model.detect(preprocessed_url)
+    return model.detect([preprocessed_url])
     # Make prediction
     # prediction = model.predict(padded)
     # if (prediction[0][0] > 0.8):

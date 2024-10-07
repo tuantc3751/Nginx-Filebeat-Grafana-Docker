@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Cài đặt nano, dos2unix và các gói phụ thuộc
-RUN apt-get update && apt-get install -y nano libc-bin dos2unix
+RUN apt-get update && apt-get install -y nano libc-bin dos2unix hping3 iputils-ping net-tools
 
 # Thiết lập thư mục làm việc
 WORKDIR /usr/src/app
